@@ -8,17 +8,17 @@ let highScore = 0;
 let started = false;
 
 let h2 = document.querySelector("h2");
-document.addEventListener("keypress",function(){
-    if(started==false){
-        console.log("Game Started");
-        started = true;
+// document.addEventListener("keypress",function(){
+//     if(started==false){
+//         console.log("Game Started");
+//         started = true;
 
-        levelUp();
-    }
-    else{
-        reset();
-    }    
-});
+//         levelUp();
+//     }
+//     else{
+//         reset();
+//     }    
+// });
 
 
 function gameFlash(btn){
@@ -95,3 +95,35 @@ function reset(){
     level = 0;
     h2.innerText = "Observe the blinking pattern and repeat from the starting level.\nPress any key to start the game.";
 }
+
+// Check if the device is a mobile device
+function isMobileDevice() {
+    return (
+      typeof window.orientation !== "undefined" ||
+      navigator.userAgent.indexOf("IEMobile") !== -1
+    );
+  }
+  
+  // Start the game on click for mobile devices
+  if (isMobileDevice()) {
+    document.addEventListener("click", function () {
+      if (started == false) {
+        console.log("Game Started");
+        started = true;
+        levelUp();
+      } else {
+        reset();
+      }
+    });
+  } else {
+    // For non-mobile devices, use "keypress" event
+    document.addEventListener("keypress", function () {
+      if (started == false) {
+        console.log("Game Started");
+        started = true;
+        levelUp();
+      } else {
+        reset();
+      }
+    });
+  }
