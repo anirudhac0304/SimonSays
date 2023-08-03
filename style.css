@@ -5,6 +5,23 @@ body{
 background: linear-gradient(90deg, rgba(130,226,227,1) 0%, rgba(165,219,205,1) 12%, rgba(134,143,208,1) 100%); */
 }
 
+/* Add responsive styles for portrait mode */
+@media (orientation: portrait) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  .btn {
+    height: 100px;
+    width: 100px;
+    margin: 1rem;
+  }
+
+  .btn-container {
+    flex-direction: column;
+  }
+}
+
 .btn{
     height: 200px;
     width: 200px;
